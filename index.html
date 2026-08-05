@@ -7,657 +7,122 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <style>
-        /* CSS RESET & VARIABLES */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-creme: #FAF6F0;       
-            --card-creme: #F2ECE1;     
-            --text-dark: #2B2D2F;     
-            
-            /* Logo Book Colors */
-            --logo-coral: #F26A36;
-            --logo-blue: #4FA9D2;
-            --logo-teal: #10B981;
-            --logo-yellow: #FFD151;
-            --logo-lavender: #B194D3;
-            --logo-pink: #FDA4AF;
-        }
-
-        body {
-            background-color: var(--bg-creme);
-            color: var(--text-dark);
-            font-family: 'Quicksand', sans-serif;
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, .logo-text {
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 600;
-        }
-
-        /* NAVIGATION */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 10%;
-            background-color: rgba(250, 246, 240, 0.85);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 2px solid var(--card-creme);
-        }
-
-        .brand-link {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: var(--text-dark);
-        }
-
-        .nav-logo-img {
-            height: 45px;
-            width: auto;
-            border-radius: 6px;
-        }
-
-        .logo-text {
-            font-size: 1.8rem;
-        }
-
-        .logo-text span {
-            color: var(--logo-coral);
-        }
-
-        nav a {
-            margin-left: 1.5rem;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 700;
-            font-size: 1.05rem;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--logo-blue);
-        }
-
-        /* HERO SECTION */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 7rem 10% 6rem 10%;
-            background: radial-gradient(circle at top right, rgba(255,209,81,0.15), transparent 45%),
-                        radial-gradient(circle at bottom left, rgba(79,169,210,0.15), transparent 45%);
-        }
-
-        .hero-logo {
-            max-width: 220px;
-            height: auto;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            max-width: 850px;
-        }
-
-        .hero h1 span {
-            color: var(--logo-coral);
-            border-bottom: 4px dashed var(--logo-yellow);
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 650px;
-            margin-bottom: 2.5rem;
-            color: #4A4D50;
-            font-weight: 600;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.9rem 2.2rem;
-            background-color: var(--logo-coral);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 0px #c24e20;
-            transition: transform 0.1s, box-shadow 0.1s;
-        }
-
-        .btn:hover {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0px #c24e20;
-        }
-
-        /* SECTION LAYOUT */
-        section {
-            padding: 6rem 10%;
-        }
-
-        section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        /* ABOUT US */
-        .about-container {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.15rem;
-            color: #3D4043;
-        }
-
-        .quote-block {
-            border-left: 4px solid var(--logo-coral);
-            padding-left: 1.5rem;
-            font-style: italic;
-            background-color: rgba(242, 106, 54, 0.05);
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-            margin: 1.5rem 0;
-            border-radius: 0 12px 12px 0;
-        }
-
-        .about-visual {
-            background-color: var(--card-creme);
-            padding: 2.5rem;
-            border-radius: 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 3px dashed var(--logo-blue);
-            text-align: center;
-        }
-
-        /* WHAT WE OFFER & GENERAL GRID ELEMENTS */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .card {
-            background-color: var(--card-creme);
-            padding: 2.5rem;
-            border-radius: 24px;
-            border: 2px solid rgba(0,0,0,0.04);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-        }
-
-        .card p {
-            font-size: 1.05rem;
-            color: #3D4043;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 12px;
-        }
-
-        .card:nth-child(1)::before { background-color: var(--logo-coral); }
-        .card:nth-child(2)::before { background-color: var(--logo-blue); }
-        .card:nth-child(3)::before { background-color: var(--logo-teal); }
-
-        /* UPCOMING EVENTS (TIMELINE CARDS) */
-        .events-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            max-width: 800px;
-            margin: 3rem auto 0 auto;
-        }
-
-        .event-card {
-            background-color: var(--card-creme);
-            display: flex;
-            align-items: center;
-            padding: 1.5rem 2rem;
-            border-radius: 20px;
-            gap: 2rem;
-            border-left: 8px solid var(--logo-blue);
-        }
-
-        .event-card:nth-child(even) {
-            border-left-color: var(--logo-yellow);
-        }
-
-        .event-date {
-            text-align: center;
-            min-width: 90px;
-        }
-
-        .event-date .day {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.8rem;
-            color: var(--logo-coral);
-            display: block;
-            line-height: 1;
-        }
-
-        .event-date .month {
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            color: var(--text-dark);
-        }
-
-        .event-details h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .event-details p {
-            color: #515457;
-            font-size: 1rem;
-        }
-
-        /* OUR TEAM */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 3rem;
-            max-width: 900px;
-            margin: 3rem auto 0 auto;
-        }
-
-        .team-member {
-            text-align: center;
-        }
-
-        .avatar-placeholder {
-            width: 140px;
-            height: 140px;
-            background-color: var(--card-creme);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem auto;
-            border: 4px solid var(--logo-lavender);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: rgba(0,0,0,0.15);
-            overflow: hidden;
-        }
-
-        .team-member:nth-child(2) .avatar-placeholder { border-color: var(--logo-teal); }
-        .team-member:nth-child(3) .avatar-placeholder { border-color: var(--logo-coral); }
-
-        .team-member h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .team-member .role {
-            font-weight: 700;
-            color: var(--logo-coral);
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .team-member p {
-            font-size: 0.95rem;
-            color: #515457;
-            padding: 0 1rem;
-        }
-
-        /* NEW: SUPPORT US BLOCK STYLES */
-        .support-container {
-            max-width: 850px;
-            margin: 3rem auto 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-        }
-
-        .support-box {
-            background-color: var(--card-creme);
-            padding: 2.5rem;
-            border-radius: 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            border: 2px solid rgba(0,0,0,0.02);
-        }
-
-        .support-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--logo-coral);
-        }
-
-        .support-box:nth-child(2) h3 {
-            color: var(--logo-blue);
-        }
-
-        .support-box p {
-            font-size: 1.05rem;
-            color: #3D4043;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .email-link {
-            color: var(--text-dark);
-            font-weight: 700;
-            text-decoration: underline;
-            text-decoration-color: var(--logo-teal);
-            text-underline-offset: 4px;
-            transition: color 0.2s;
-        }
-
-        .email-link:hover {
-            color: var(--logo-teal);
-        }
-
-        /* CONTACT FORM */
-        .contact-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: var(--card-creme);
-            padding: 3rem;
-            border-radius: 28px;
-            border: 2px solid rgba(0,0,0,0.02);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 0.9rem;
-            border: 2px solid transparent;
-            background-color: var(--bg-creme);
-            border-radius: 12px;
-            font-size: 1rem;
-            font-family: 'Quicksand', sans-serif;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--logo-blue);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background-color: var(--text-dark);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            font-family: 'Fredoka', sans-serif;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .submit-btn:hover {
-            background-color: var(--logo-teal);
-        }
-
-        /* FOOTER & SOCIALS */
-        footer {
-            text-align: center;
-            padding: 4rem 2rem;
-            background-color: var(--card-creme);
-            font-size: 1rem;
-            color: #616467;
-            font-weight: 600;
-        }
-
-        .social-links {
-            margin-bottom: 1.5rem;
-        }
-
-        .instagram-icon {
-            font-size: 2.2rem;
-            color: var(--text-dark);
-            transition: transform 0.2s, color 0.2s;
-            display: inline-block;
-        }
-
-        .instagram-icon:hover {
-            color: #E1306C; /* Official Instagram Pink-Red branding */
-            transform: scale(1.15);
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 1.5rem; padding: 1.5rem 5%; }
-            nav a { margin: 0 0.3rem; font-size: 0.9rem; }
-            .hero h1 { font-size: 2.4rem; }
-            .about-container { grid-template-columns: 1fr; gap: 2.5rem; }
-            .event-card { flex-direction: column; text-align: center; padding: 2rem; }
-            .support-container { grid-template-columns: 1fr; gap: 2rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <a href="#" class="brand-link">
+        <a href="index.html" class="brand-link">
             <img src="ReadLink (1).png" alt="ReadLink Logo" class="nav-logo-img" onerror="this.style.display='none'">
             <div class="logo-text">Read<span>Link</span></div>
         </a>
         <nav>
-            <a href="#about">Our Story</a>
-            <a href="#aims">What We Do</a>
-            <a href="#events">Events</a>
-            <a href="#team">Team</a>
-            <a href="#support">Support Us</a>
-            <a href="#contact">Contact Us</a>
+            <a href="index.html" class="nav-link active">Home</a>
+            
+            <div class="nav-item">
+                <a href="about.html">About <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                <div class="dropdown-menu">
+                    <a href="about.html#story">Our Story</a>
+                    <a href="about.html#team">Our Team</a>
+                </div>
+            </div>
+            
+            <a href="events.html" class="nav-link">Events</a>
+            
+            <div class="nav-item">
+                <a href="support.html">Support Us <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                <div class="dropdown-menu">
+                    <a href="support.html#support-options">Support Us</a>
+                    <a href="support.html#volunteer">Volunteer</a>
+                </div>
+            </div>
+            
+            <a href="contact.html" class="nav-link">Contact Us</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <img src="ReadLink (1).png" alt="ReadLink Project Logo" class="hero-logo" onerror="this.style.display='none'">
-        <h1>Connecting Communities Through the <span>Joy of Reading</span></h1>
-        <p>Providing free literacy education, resources, and learning opportunities for underrepresented communities and children.</p>
-        <a href="#contact" class="btn">Get Involved</a>
-    </section>
+    <main>
+        <section class="hero">
+            <img src="ReadLink (1).png" alt="ReadLink Project Logo" class="hero-logo" onerror="this.style.display='none'">
+            <h1>Connecting Communities Through the <span>Joy of Reading</span></h1>
+            <p>Providing free literacy education, resources, and learning opportunities for underrepresented communities and children.</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <a href="support.html#volunteer" class="btn">Get Involved</a>
+                <a href="about.html" class="btn btn-secondary">About Us</a>
+            </div>
+        </section>
 
-    <section id="about">
-        <div class="about-container">
-            <div class="about-text">
-                <h2 style="text-align: left; color: var(--logo-coral);">Our Story & Goals</h2>
-                <p>Every child deserves the chance to discover the worlds hidden inside books. However, barriers to literacy still impact countless neighborhoods, leaving brilliant children behind before they even get a fair start.</p>
-                
-                <div class="quote-block">
-                    <p><strong>A Note From Our Founder:</strong> "While volunteering at an elementary school robotics class, we handed out name tags to get to know the children and were double-checking if they got the correct name tages. I noticed some of the kids could not read their own names on the name tags.</p>
-                    <p style="margin-top: 0.5rem;"> Literacy is a crucial foundation for all learning and life. That moment motivated me to start this organization."</p>
+        <!-- EXPLORE SECTIONS PREVIEW -->
+        <section style="background-color: rgba(242, 236, 225, 0.3);">
+            <h2>Explore ReadLink Project</h2>
+            <p style="text-align: center; max-width: 600px; margin: -1rem auto 2.5rem auto; color: #515457; font-weight: 600;">
+                Learn more about our mission, upcoming community workshops, and ways you can make a difference.
+            </p>
+
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <div>
+                        <h3>Our Story & Mission</h3>
+                        <p>ReadLink was founded to close the literacy gap after noticing children struggle with basic reading. Discover our history and core mission.</p>
+                    </div>
+                    <a href="about.html#story" class="link-btn">Read Our Story <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
 
-                <p>That is how ReadLink Project was born. Our core goal is to close the resource gap, empowering young readers by fostering a supportive culture where basic education is accessible, interactive, and entirely free.</p>
-            </div>
-            <div class="about-visual">
-                <h3 style="color: var(--logo-blue); margin-bottom: 1rem;">Our Core Mission</h3>
-                <p style="font-weight: 600; font-size: 1.15rem; color: #4A4D50;">To ensure every child gets access to free, foundational literacy education, turning reading from a barrier into a bridge that leads the way to learning.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="aims" style="background-color: rgba(242, 236, 225, 0.3);">
-        <h2>What We Aim To Do</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>Accessible Classrooms</h3>
-                <p>Providing free reading workshops, structured lessons, and tailored academic support to children in underserved areas.</p>
-            </div>
-            <div class="card">
-                <h3>Literacy Resources</h3>
-                <p>Distributing books and learning materials straight into communities, ensuring no child goes without a story to read.</p>
-            </div>
-            <div class="card">
-                <h3>Empowering Opportunities</h3>
-                <p>Creating bright pipelines for mentorship, continuous learning, and community engagement to help kids thrive inside and outside school.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="events">
-        <h2>Upcoming Events</h2>
-        <p style="text-align: center; max-width: 600px; margin: -1rem auto 2rem auto; color: #515457; font-weight: 600;">
-            Join us at our upcoming community reading workshops and distribution drives!
-        </p>
-        
-        <div class="events-container">
-            <div class="event-card">
-                <div class="event-date">
-                    <span class="day">15</span>
-                    <span class="month">July</span>
+                <div class="preview-card">
+                    <div>
+                        <h3>Meet the Team</h3>
+                        <p>Get to know Executive Director Eunice Sim, Creative Director Ina Dufalt, Event Director Bridget Proto, and Director of Outreach & Fundraising Emerson Salerno.</p>
+                    </div>
+                    <a href="about.html#team" class="link-btn">Meet Our Team <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-                <div class="event-details">
-                    <h3>Summer Community Book Drive</h3>
-                    <p><strong>Time:</strong> 10:00 AM - 2:00 PM | <strong>Location:</strong> Local Community Center</p>
-                    <p>Come grab free books for all elementary school age groups! We'll have reading spaces and creative storytelling tables set up.</p>
+
+                <div class="preview-card">
+                    <div>
+                        <h3>Upcoming Events</h3>
+                        <p>Join us at our community book drives and hands-on phonics labs pairing young learners with passionate student mentors.</p>
+                    </div>
+                    <a href="events.html" class="link-btn">View Event Schedule <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="preview-card">
+                    <div>
+                        <h3>Support Our Mission</h3>
+                        <p>Help keep our programs 100% free through monetary contributions or physical book and stationery supply drop-offs.</p>
+                    </div>
+                    <a href="support.html#support-options" class="link-btn">Support Us <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="preview-card">
+                    <div>
+                        <h3>Volunteer with Us</h3>
+                        <p>Whether preparing book packs, assisting at book drives, or designing learning tools, explore active volunteer roles.</p>
+                    </div>
+                    <a href="support.html#volunteer" class="link-btn">Volunteer Roles <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="preview-card">
+                    <div>
+                        <h3>Contact Us</h3>
+                        <p>Have questions or want to bring ReadLink Project to your neighborhood school or community center? Get in touch with us.</p>
+                    </div>
+                    <a href="contact.html" class="link-btn">Contact Form <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
-
-            <div class="event-card">
-                <div class="event-date">
-                    <span class="day">02</span>
-                    <span class="month">Aug</span>
-                </div>
-                <div class="event-details">
-                    <h3>Interactive Reading & Phonics Lab</h3>
-                    <p><strong>Time:</strong> 1:00 PM - 3:00 PM | <strong>Location:</strong> Public Library Room B</p>
-                    <p>A fun, hands-on workshop pairing young learners with passionate student mentors to build foundational literacy skills through games.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="team" style="background-color: rgba(242, 236, 225, 0.3);">
-        <h2>Our Team</h2>
-        <p style="text-align: center; max-width: 500px; margin: -1rem auto 2rem auto; color: #515457; font-weight: 600;">
-            The passionate minds pulling together to make literacy accessible.
-        </p>
-        
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="avatar-placeholder">📖</div>
-                <h3>Eunice Sim</h3>
-                <div class="role">Founder & Executive Director</div>
-                <p>Dedicated to bridging technical mentorship and fundamental literacy skills for children in underrepresented communities.</p>
-            </div>
-
-            <div class="team-member">
-                <div class="avatar-placeholder">🎨</div>
-                <h3>Team member 3</h3>
-                <div class="role">Creative Director</div>
-                <p>Oversees design, visual resource building, and helping turn educational lessons into vibrant, interactive assets.</p>
-            </div>
-
-            <div class="team-member">
-                <div class="avatar-placeholder">🤝</div>
-                <h3>Bridget Proto</h3>
-                <div class="role">Event Director</div>
-                <p>Coordinates with elementary schools and community centers to safely distribute books and set up free learning clinics.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="support">
-        <h2>Support Our Mission</h2>
-        <p style="text-align: center; max-width: 600px; margin: -1rem auto 3rem auto; color: #515457; font-weight: 600;">
-            There are many ways to make an impact. Help us keep our programs completely free for children.
-        </p>
-
-        <div class="support-container">
-            <div class="support-box">
-                <div>
-                    <h3>Monetary Donations</h3>
-                    <p>Your financial contributions go directly toward printing custom learning curriculum, funding workshop spaces, purchasing books, and managing programmatic overhead.</p>
-                </div>
-                <a href="https://readlinkproject.github.io/readlink-project/" target="_blank" class="btn" style="background-color: var(--logo-blue); box-shadow: 0 4px 0px #3884a6;">Donate Funds</a>
-            </div>
-
-            <div class="support-box">
-                <div>
-                    <h3>Donate Supplies</h3>
-                    <p>We eagerly accept free physical items that actively help us teach kids, including elementary school level books, workbooks, and basic stationery supplies (pencils, markers, notebooks).</p>
-                </div>
-                <p style="margin-bottom: 0; font-size: 1rem;">To coordinate item drop-offs or direct shipping, please reach out to:<br>
-                   <a href="mailto:readlinkproject@gmail.com" class="email-link">readlinkproject@gmail.com</a>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" style="background-color: rgba(242, 236, 225, 0.3);">
-        <h2>Contact Us</h2>
-        <p style="text-align: center; max-width: 500px; margin: -1rem auto 3rem auto; color: #515457; font-weight: 600;">
-            Want to collaborate, volunteer, or bring ReadLink to your neighborhood? Let’s connect!
-        </p>
-        <div class="contact-container">
-            <form action="https://formspree.io/f/xojbzwza" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Your Name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="name@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required placeholder="Tell us how you'd like to get involved!"></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="about.html#story">Our Story</a>
+            <a href="about.html#team">Our Team</a>
+            <a href="events.html">Events</a>
+            <a href="support.html">Support Us</a>
+            <a href="support.html#volunteer">Volunteer</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
         <div class="social-links">
             <a href="https://www.instagram.com/readlinkproject/" target="_blank" class="instagram-icon" title="Follow ReadLink on Instagram">
                 <i class="fab fa-instagram"></i>
